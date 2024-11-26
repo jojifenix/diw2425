@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor_videos</title>
+    <link rel="stylesheet" href="estilos_ej1.css" type="text/css">
+</head>
+<body>
+    <div id="videoWrapper">
+        <h1>Lista de Videos</h1>
+        <input type="text" id="inputVideos" placeholder="Escribe las URLs separadas por comas">
+        <button onclick="iniciarLista()">Reproducir</button>
+        
+        <video id="player" width="640" height="360" controls></video>
+        
+        <div id="eventLog"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

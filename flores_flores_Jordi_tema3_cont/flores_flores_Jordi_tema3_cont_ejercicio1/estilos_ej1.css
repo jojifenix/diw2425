@@ -1,0 +1,14 @@
+#videoWrapper {
+    width: 640px;
+    margin: auto;
+}
+#eventLog {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}

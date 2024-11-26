@@ -1,0 +1,21 @@
+/* estilos.css */
+.dock{
+    position: fixed;          
+    bottom: 0;                 
+    left: 0;                   
+    right: 0;                  
+    display: flex;
+    justify-content: center;   
+    padding: 20px;
+    gap: 10px;
+    background-color: rgba(139, 26, 124, 0.8); 
+}
+
+.dock img {
+    width: 50px;
+    transition: transform 0.3s ease;
+}
+
+.dock img:hover {
+    transform: scale(1.5);
+}

@@ -1,0 +1,21 @@
+body{
+    margin:0;
+    padding:0;
+    height:100%;
+    display:flex; /*centramos el contenido de manera dinámica*/
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    font-family:'Times New Roman',sans-serif;
+    background: url(Urdabai.jpg) no-repeat center center fixed;
+    background-size: cover;   /*La imagen ocupa toda la pantalla, 
+    sin distorsión*/
+}
+
+h1{
+    font:size 3em;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
