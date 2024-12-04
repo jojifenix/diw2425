@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--Mostrar una serie de lenguajes de programación y
+aplicar un estilo resaltado para aquellos lenguajes
+que son orientados a objetos. Cuando se presione
+un botón agregar la propiedad background-color a
+todos los elementos de dicha clase.-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Actividad 4.2</title>
+</head>
+
+<body>
+
+    <h2>Lenguajes de programación </h2>
+    <p>¿Cuales de los siguientes lenguajes son orientados a objetos : <span class="pintado">Java</span>, VB6, <span class="pintado">C++</span>, C,<span class="pintado">C#</span>, Cobol ? </p>
+    <input type="button" value="Resultado "id="boton1"/>
+    <script>
+        //Evento y manejador
+        $("#boton1").on("click", function pintar() {
+            //usamos .css para aplicar estilos a la clase definida en el párrafo para las palabras seleccionadas
+            $(".pintado").css("background-color","yellow")
+        })
+
+    </script>
+
+
+</body>
+
+</html>
