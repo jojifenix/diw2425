@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--Convierte el código JavaScript siguiente utilizando
+jQuery:
+
+<script type="text/javascript">
+var setList = function (){
+var x = docunent.getElementById("number").value;
+var lista = "<ul>";
+for (var 1; i < x; i++) {
+lista += "<li>" +i+ "</li>";
+}
+lista += "</ul>";
+document.getElementById("contenedorLista").inner
+HTML = lista;
+};
+</script>.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Ejercicio 4.4</title>
+</head>
+<body>
+    <input type="number" id="number" placeholder="Introduce un nº">
+    <button id="crearLista">Creación de la lista</button>
+    <div id="contenedorLista"></div>
+    <script>
+        $(document).ready(function(){
+            $("#crearLista").click(function(){
+                var x = $("#number").val(); // valor del input
+                var lista="<ul>";
+
+                for(var i=1; i<=x; i++){// incluimos nº x
+                    lista += "<li>" + i + "</li>";
+                }
+
+                lista +="</ul>";
+
+                //Insertar lista creada en el contenedor
+                $("#contenedorLista").html(lista);
+
+                
+            });
+        });
+    </script>
+</body>
+</html>     
+          

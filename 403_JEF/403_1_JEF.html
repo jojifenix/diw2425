@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4.6</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .mensaje {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario-principal">
+        <label for="caja-texto">Caja de Texto:</label>
+        <input type="text" id="caja-texto" name="cajaTexto">
+        <br><br>
+
+        <label for="area-texto">Área de Texto:</label>
+        <textarea id="area-texto" name="areaTexto"></textarea>
+        <br><br>
+
+        <label>Género:</label>
+        <input type="radio" id="masculino" name="genero" value="masculino"> Masculino
+        <input type="radio" id="femenino" name="genero" value="femenino"> Femenino
+        <br><br>
+
+        <label>Preferencias:</label>
+        <input type="checkbox" id="opcion1" name="preferencia1" value="Opción 1"> Opción 1
+        <input type="checkbox" id="opcion2" name="preferencia2" value="Opción 2"> Opción 2
+        <br><br>
+
+        <label for="selector">Selector:</label>
+        <select id="selector" name="selector">
+            <option value="opcion1">Opción 1</option>
+            <option value="opcion2">Opción 2</option>
+            <option value="opcion3">Opción 3</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Enviar</button>
+        <button type="button" id="cancelar">Cancelar</button>
+    </form>
+
+    <span class="mensaje" style="display:none;" id="mensaje">Mensaje</span>
+
+    <script>
+        $(document).ready(function() {
+            const mostrarMensaje = (texto) => {
+                $("#mensaje").text(texto).fadeIn().fadeOut(3000);
+            };
+
+            // Eventos de la Caja de Texto
+            $("#caja-texto").on("focus", function() {
+                mostrarMensaje("Caja de texto seleccionada");
+            });
+            $("#caja-texto").on("blur", function() {
+                mostrarMensaje("Caja de texto deseleccionada");
+            });
+            $("#caja-texto").on("change", function() {
+                mostrarMensaje("Valor de la caja cambiado a: " + $(this).val());
+            });
+            $("#caja-texto").on("select", function() {
+                mostrarMensaje("Texto seleccionado en la caja");
+            });
+
+            // Eventos del Área de Texto
+            $("#area-texto").on("focus", function() {
+                mostrarMensaje("Área de texto seleccionada");
+            });
+            $("#area-texto").on("blur", function() {
+                mostrarMensaje("Área de texto deseleccionada");
+            });
+            $("#area-texto").on("change", function() {
+                mostrarMensaje("Valor del área de texto cambiado");
+            });
+            $("#area-texto").on("select", function() {
+                mostrarMensaje("Texto seleccionado en el área de texto");
+            });
+
+            // Eventos de Radio 
+            $("input[name='genero']").on("change", function() {
+                mostrarMensaje("Género seleccionado: " + $(this).val());
+            });
+
+            // Eventos Casillas de Verificación
+            $("input[type='checkbox']").on("change", function() {
+                mostrarMensaje("La casilla " + $(this).val() + " está ahora " + (this.checked ? "marcada" : "desmarcada"));
+            });
+
+            // Evento de envío 
+            $("#formulario-principal").on("submit", function(evento) {
+                evento.preventDefault(); 
+                mostrarMensaje("Formulario enviado");
+            });
+
+            // Evento Cancelar
+            $("#cancelar").on("click", function() {
+                mostrarMensaje("Formulario cancelado");
+                $("#formulario-principal")[0].reset();
+            });
+        });
+    </script>
+</body>
+</html>

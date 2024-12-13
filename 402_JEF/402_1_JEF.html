@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--Selecciona el primer elemento de la primera lista y
+oculta dicho elemento utilizando para ello
+la propiedad adecuada en la CSS.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <!-- Referenciando la librería a traves de una CDN (google ej , o la de jquery )
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <title>Ejercicio 4.3</title>
+</head>
+<body>
+    
+    <ul>
+        <li type="disc">Lista 1
+            <ul id="lista1">
+                <li type="circle">Tortilla</li>
+                <li type="circle">Jamón</li>
+                <li type="circle">Queso</li>
+            </ul>
+        </li>
+        <li type="disc">Lista 2
+            <ul id="lista2">
+                <li type="circle">Coca Cola</li>
+                <li type="circle">Leche</li>
+                <li type="circle">Té</li>
+            </ul>
+
+        </li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            //Seleccionar el primer elemento de la primera lista y lo oculta
+            $("#lista1 li:first").css("display","none");
+        })
+    </script>
+</body>
+</html>     
+          

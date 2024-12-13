@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4.5</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            float: left;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        .resaltado {
+            background-color: yellow;
+        }
+        #barra-lateral {
+            width: 40%;
+            margin: 20px;
+            float: right;
+            border: 1px solid #000;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .etiqueta-formulario {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table id="tabla-equipos">
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Equipo</th>
+                <th>Puntos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Real Oviedo</td>
+                <td>50</td>
+                <td>
+                    <button class="btn-resaltar">Seleccionar</button>
+                    <button class="btn-borrar">Borrar</button>
+                    <button class="btn-modificar">Modificar</button>
+                </td>
+            </tr>
+            <!-- Más filas según sea necesario -->
+        </tbody>
+    </table>
+
+    <div id="barra-lateral">
+        <form id="formulario-datos">
+            <label class="etiqueta-formulario" for="campo-posicion">Posición:</label>
+            <input type="text" id="campo-posicion" name="posicion"><br>
+            <label class="etiqueta-formulario" for="campo-equipo">Equipo:</label>
+            <input type="text" id="campo-equipo" name="equipo"><br>
+            <label class="etiqueta-formulario" for="campo-puntos">Puntos:</label>
+            <input type="text" id="campo-puntos" name="puntos"><br>
+            <button type="button" id="btn-agregar">Insertar</button>
+            <button type="button" id="btn-cancelar">Cancelar</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Seleccionar/Deseleccionar fila
+            $(document).on('click', '.btn-resaltar', function() {
+                const fila = $(this).closest('tr'); // Actúa sobre la fila contenedora del botón
+                if (fila.hasClass('resaltado')) {
+                    fila.removeClass('resaltado');
+                    $(this).text('Seleccionar');
+                } else {
+                    fila.addClass('resaltado');
+                    $(this).text('Deseleccionar');
+                }
+            });
+
+            // Borrar fila
+            $(document).on('click', '.btn-borrar', function() {
+                $(this).closest('tr').remove(); // Actúa sobre la fila contenedora del botón
+            });
+
+            // Modificar fila
+            $(document).on('click', '.btn-modificar', function() {
+                const fila = $(this).closest('tr'); // Selecciona la fila del botón clicado
+                const posicion = fila.find('td:first').text(); // Primer hijo de la fila
+                const equipo = fila.find('td:nth-child(2)').text(); // Segundo hijo
+                const puntos = fila.find('td:nth-child(3)').text(); // Tercer hijo
+
+                $('#campo-posicion').val(posicion); // Carga los valores en el formulario
+                $('#campo-equipo').val(equipo);
+                $('#campo-puntos').val(puntos);
+                $('#btn-agregar').text('Modificar').data('fila-editar', fila);
+            });
+
+            // Insertar/Modificar fila
+            $('#btn-agregar').click(function() {
+                const posicion = $('#campo-posicion').val();
+                const equipo = $('#campo-equipo').val();
+                const puntos = $('#campo-puntos').val();
+
+                if ($(this).text() === 'Modificar') {
+                    const fila = $(this).data('fila-editar');
+                    fila.find('td:first').text(posicion); // Actualiza primer hijo
+                    fila.find('td:nth-child(2)').text(equipo); // Actualiza segundo hijo
+                    fila.find('td:nth-child(3)').text(puntos); // Actualiza tercer hijo
+                    $(this).text('Insertar').removeData('fila-editar');
+                } else {
+                    const nuevaFila = `<tr>
+                        <td>${posicion}</td>
+                        <td>${equipo}</td>
+                        <td>${puntos}</td>
+                        <td>
+                            <button class='btn-resaltar'>Seleccionar</button>
+                            <button class='btn-borrar'>Borrar</button>
+                            <button class='btn-modificar'>Modificar</button>
+                        </td>
+                    </tr>`;
+                    $('#tabla-equipos tbody').append(nuevaFila);
+                }
+
+                $('#formulario-datos')[0].reset();
+            });
+
+            // Cancelar acción
+            $('#btn-cancelar').click(function() {
+                $('#formulario-datos')[0].reset();
+                $('#btn-agregar').text('Insertar').removeData('fila-editar');
+            });
+        });
+    </script>
+</body>
+</html>
