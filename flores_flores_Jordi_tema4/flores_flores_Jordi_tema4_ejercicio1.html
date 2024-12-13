@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--Teniendo esta página, hacer a través de jQuery que
+al presionar el botón se oculten todos los li de la
+primera lista-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>Actividad 4.1</title>
+</head>
+<body>
+    <input type="button" value="ocultar item primer lista" id="boton1"/>
+    <h2>Lista 1</h2>
+    <ul id="lista1">
+        <li>Opción número 1</li>
+        <li>Opción número 2</li>
+        <li>Opción número 3</li>
+        <li>Opción número 4</li>
+    </ul>
+    <h2>Lista 2</h2>
+    <ul id="lista2">
+        <li>Opción número 1</li>
+        <li>Opción número 2</li>
+        <li>Opción número 3</li>
+        <li>Opción número 4</li>
+    </ul>
+     
+     <script>
+    //Evento y manejador 
+    $("#boton1").on("click",function(){
+         //Ocultar los elementos <li> de un <ul> específico por id
+        $("#lista1 li").hide();
+    });
+   
+
+
+     </script>
+
+    
+</body>
+</html>     
+          
