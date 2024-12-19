@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!--Biblioteca jQuery desde la CDN de jquery-->
+    <style>
+    </style>
+</head>
+<body>
+    <h1>Búsqueda de canciones de Spotify</h1>
+    <!--Creamos la caja de texto-->
+    <input type="text" id="entradaCanciones" placeholder="Introduzca el nombre de su canción">
+    <!--Creamos el botón-->
+    <button id="botonBuscador">Buscar</button>
+    <!--Creamos un contenedor para introducir los resultados más tarde-->
+    <div id="resultados">
+
+    </div>
+
+    <script>
+            //SECCIÓN JQUERY
+            $(document).ready(function(){ //cargamos el DOM dentro de la función principal $ de jQuery y aplicamos el método ready() para ejecutar function(){}
+
+                const tokenAcceso='85cf61fbe56742cb810a6e7a9901c311'; // token de acceso de spotify
+                $('botonBuscador').click(function(){ // función que se ejecuta al hacer click en el botón
+                    const nombreCancion= $('entradaCanciones').val().trim(); //Guardamos el valor de la caja de texto dónde se introduce el nombre de la canción
+                    if(!nombreCancion){
+                        alert('Por favor, introduzca el nombre de una canción');
+                        return;
+                    }//nos aseguramos que introduzca el usuario un nombre de canción
+
+                    $.ajax({
+                        url:`https://api.spotify.com/v1/search?q=${encodeURIComponent(nombreCancion)}&type=track`, //URL de la API de Spotify a dónde se enviará la solicitud especificando el type=track
+                        type:'GET', //petición para obtener información del servidor
+                        headers:{
+                            'Authorization' : `Bearer ${tokenAcceso}`//cabecera que necesita autenticación tipo Bearer
+                        },//cabeceras que vamos a usar en la solicitud
+                        success: function(response){
+                            $('#resultados').empty();
+
+                            if(response.tracks.items.length===0){
+                                $('#resultados').append('<p>No se encontraron resultados</p>');
+                                return;
+                            }
+
+                            
+                            response.tracks.items.forEach(track=>{
+                                const trackHtml = `
+                                    <div class="track-info">
+                                        <img src="${track.album.images[0]?.url || ''}" alt="Album Art">
+                                        <p><strong>Canción:</strong> ${track.name}</p>
+                                        <p><strong>Artista:</strong> ${track.artists.map(artist => artist.name).join(', ')}</p>
+                                        <p><strong>Álbum:</strong> ${track.album.name}</p>
+                                        <a href="${track.external_urls.spotify}" target="_blank">Escuchar en Spotify</a>
+                                    </div>
+                                `;
+                                $('#results').append(trackHtml);
+                            });
+               
+                    
+                        },//función de callback que se ejecuta cuando la solicitud tiene éxito
+                        error: function(error){
+                            console.error('Error en la llamada a la API: ',error);//contiene información sobre el error 
+                            alert('No se pudo realizar la búsqueda.Por favor, inténtelo de nuevo.');
+                        }////función de callback que se ejecuta cuando la solicitud no tiene éxito
+                    })//Llamada a la API  mediante el método ajax() que nos permite realizar solicitudes asíncronas a un servidor (se envían y reciben datos sin recargar la página y se configura la solicitud mediante un objeto con varias propiedades)
+
+
+
+
+
+
+
+
+                })
+            })
+
+    </script>
+</body>
+</html>
