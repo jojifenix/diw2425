@@ -7,6 +7,25 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <!--Biblioteca jQuery desde la CDN de jquery-->
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+    }
+
+        .track-info {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .track-info img {
+             width: 100px;
+        }
+
     </style>
 </head>
 <body>
@@ -46,7 +65,7 @@
                                 return;
                             }
 
-                            
+
                             response.tracks.items.forEach(track=>{
                                 const trackHtml = `
                                     <div class="track-info">
