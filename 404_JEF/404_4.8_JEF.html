@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ng-app="rtm" xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+    <title>Remember The Milk - Registrarse</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="theme-color" content="#0060bf" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script type="text/javascript">
+   
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-235686425-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-235686425-1');
+    </script>
+</head>
+
+<body class="rtm-signup"    ng-controller="rtm.NavController as nav"ng-class="{'show-top-mobile-nav': nav.showTopMobileNav, 'show-left-mobile-nav': nav.showLeftMobileNav}">
+
+<main class="rtm-main-dual container-fluid">
+    <section class="row">
+        <article class="col-sm-6 hidden-xs">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-offset-3 col-sm-offset-1">
+                        <a class="rtm-top-nav-logo-white" href="/"></a>
+                        <div class="rtm-signup-people">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="rtm-signup-person-1"></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="rtm-signup-person-2"></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="rtm-signup-person-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>&iexcl;Únete a millones de personas cada vez más organizadas y productivas!</h2>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="col-sm-6 col-xs-12">
+            <div>
+                <a class="rtm-top-nav-logo-blue hidden-sm hidden-md hidden-lg" href="/"></a>
+                <a class="btn btn-info" href="/login/">Iniciar sesión</a>
+
+<div ng-controller="rtm.SignupController as signup">
+
+<form id="signupForm" ng-mousedown="signup.onMouseDown($event)"  name="signup.form" autocomplete="off" method="post" action="" >
+    <input type="hidden" name="XSRF-TOKEN" value="7cde8e4dd739a4ea792326594104be6ef7b859853cba701562218e009724b56d" />
+    <h3>
+                    Regístrate gratis.      </h3>
+
+    <div class="form-group"></div>
+        <input type="text" maxlength="100" class="form-control input-lg" name="firstname" value="" placeholder="Nombre" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" maxlength="100" class="form-control input-lg" name="lastname" value="" placeholder="Apellido" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" minlength="3" maxlength="100" class="form-control input-lg" name="origen" placeholder="Origen" />
+    </div>
+
+    <div class="form-group">
+        <input type="date" class="form-control input-lg" name="fecha_salida" placeholder="Fecha de salida" />
+    </div>
+
+    <div class="form-group"></div>
+        <input type="text" minlength="3" maxlength="100" class="form-control input-lg" name="destino" placeholder="Destino" />
+    </div>
+
+    <div class="form-group">
+        <input type="date" class="form-control input-lg" name="fecha_llegada" placeholder="Fecha de llegada" />
+    </div>
+
+    <div class="form-group">
+        <input type="email" maxlength="50" class="form-control input-lg" name="email" value="" placeholder="Dirección de correo electrónico" />
+    </div>
+
+    <div class="form-group">
+        <input type="text" autocapitalize="off" minlength="2" maxlength="50" pattern="^([a-zA-Z0-9_\.])+$" class="form-control input-lg" name="username" value="" placeholder="Usuario" />
+    </div>
+
+    <div class="form-group">
+        <input type="password" minlength="5" class="form-control input-lg" name="password" placeholder="Contraseña" />
+    </div>
+
+    <input name="signup" type="submit" class="btn btn-primary btn-lg btn-block rtm-signup-btn-rtm" value="&iexcl;Date de alta!" />
+
+    <div class="rtm-signup-divider">
+        <hr />
+        <span>O</span>
+    </div>
+    <a href="https://www.rememberthemilk.com/auth?fbauth=1&tpl=app/signup/existing&secure=1" class="btn btn-lg btn-block rtm-signup-btn-facebook">
+        <div>
+            <i class="fa fa-facebook-official"></i>
+        </div>
+        Iniciar sesión con Facebook    </a>
+    <a href="https://www.rememberthemilk.com/auth?gauth=1&tpl=app/signup/existing&secure=1" class="btn btn-lg btn-block rtm-signup-btn-google">
+        <div></div>
+        Regístrate con Google    </a>
+    <a href="https://www.rememberthemilk.com/auth?appleauth=1&tpl=app/signup/existing&secure=1" class="btn btn-lg btn-block rtm-signup-btn-apple
+                        "></a>
+        <div><svg xmlns="http://www.w3.org/2000/svg" height="48px" width="22px" viewBox="9 0 21 44"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><path fill="#fff" fill-rule="nonzero" d="M19.8196726,13.1384615 C20.902953,13.1384615 22.2608678,12.406103 23.0695137,11.4296249 C23.8018722,10.5446917 24.3358837,9.30883662 24.3358837,8.07298156 C24.3358837,7.9051494 24.3206262,7.73731723 24.2901113,7.6 C23.0847711,7.64577241 21.6353115,8.4086459 20.7656357,9.43089638 C20.0790496,10.2090273 19.4534933,11.4296249 19.4534933,12.6807374 C19.4534933,12.8638271 19.4840083,13.0469167 19.4992657,13.1079466 C19.5755531,13.1232041 19.6976128,13.1384615 19.8196726,13.1384615 Z M16.0053051,31.6 C17.4852797,31.6 18.1413509,30.6082645 19.9875048,30.6082645 C21.8641736,30.6082645 22.2761252,31.5694851 23.923932,31.5694851 C25.5412238,31.5694851 26.6245041,30.074253 27.6467546,28.6095359 C28.7910648,26.9312142 29.2640464,25.2834075 29.2945613,25.2071202 C29.1877591,25.1766052 26.0904927,23.9102352 26.0904927,20.3552448 C26.0904927,17.2732359 28.5316879,15.8848061 28.6690051,15.7780038 C27.0517133,13.4588684 24.5952606,13.3978385 23.923932,13.3978385 C22.1082931,13.3978385 20.6283185,14.4963764 19.6976128,14.4963764 C18.6906198,14.4963764 17.36322,13.4588684 15.7917006,13.4588684 C12.8012365,13.4588684 9.765,15.9305785 9.765,20.5993643 C9.765,23.4982835 10.8940528,26.565035 12.2824825,28.548506 C13.4725652,30.2268277 14.5100731,31.6 16.0053051,31.6 Z"></path></g>
+</svg>
+</div>
+        Registrarse con Apple    </a>
+
+    <div class="rtm-signup-terms">
+        Al proceder a crear tu cuenta y usar Remember The Milk, aceptas nuestras <a target="_blank" href="/help/terms.rtm">Condiciones de uso</a> y <a target="_blank" href="/help/privacy.rtm">Política de privacidad</a>. Si no aceptas, no puede utilizar Remember The Milk.  </div>
+
+</form>
+
+</div>
+            </div>
+        </article>
+    </section>
+</main>
+<!--En el script vamos a usar JQUERY VALIDATION -->
+<script>
+$(document).ready(function() {
+    $("#signupForm").validate({
+        rules: {
+            firstname: {
+                required: true,
+                maxlength: 100
+            },
+            lastname: {
+                required: true,
+                maxlength: 100
+            },
+            origen: {
+                required: true,
+                minlength: 3,
+                maxlength: 100
+            },
+            fecha_salida: {
+                required: true,
+                date: true
+            },
+            destino: {
+                required: true,
+                minlength: 3,
+                maxlength: 100
+            },
+            fecha_llegada: {
+                required: true,
+                date: true
+            },
+            email: {
+                required: true,
+                email: true,
+                maxlength: 50
+            }
+        },
+        messages: {
+            firstname: {
+                required: "Nombre obligatorio",
+                maxlength: "Máximo 100 caracteres"
+            },
+            lastname: {
+                required: "Apellidos obligatorios",
+                maxlength: "Máximo 100 caracteres"
+            },
+            origen: {
+                required: "Origen obligatorio",
+                minlength: "Mínimo 3 caracteres",
+                maxlength: "Máximo 100 caracteres"
+            },
+            fecha_salida: {
+                required: "Fecha de salida obligatoria",
+                date: "Formato de fecha no válido"
+            },
+            destino: {
+                required: "Destino obligatorio",
+                minlength: "Mínimo 3 caracteres",
+                maxlength: "Máximo 100 caracteres"
+            },
+            fecha_llegada: {
+                required: "Fecha de llegada obligatoria",
+                date: "Formato de fecha no válido"
+            },
+            email: {
+                required: "Dirección de correo obligatoria",
+                email: "Formato de correo no válido",
+                maxlength: "Máximo 50 caracteres"
+            }
+        },
+        submitHandler: function (form) {
+                    // Solo se envía si todo es válido
+                    form.submit();}
+    });
+});
+</script>
+<script>
+(function() {
+var annotated = window.location.href.indexOf("genius.it/") !== -1;
+if (annotated) {
+    window.location.href = window.location.href.replace("genius.it/", "")
+}
+})();
+</script>
+
+<script type="text/javascript">
+if ('_rtm_start_rtt' in window) {
+(function(){function b(){window[c]=(new Date).getTime();var a=document.createElement("script");a.setAttribute("type","text/javascript");a.setAttribute("async","true");a.setAttribute("src","\/js\/rtt.6.js?1525298820");document.body.appendChild(a)}var c="_rtm_end_rtt",d=window.onload;window.onload=typeof window.onload!="function"?b:function(){d();b()}})();
+}
+</script>
+</body>
+</html>
